@@ -45,21 +45,24 @@
             border: 3px solid black;
             border-radius: 10px;
             padding: 30px;
+            display: none;
         }
 
     </style>
 
     <script>
-        let count = 1;
-        function hey() {
+        function openclose() {
+            let status = $('#post-box').css('display');
+            if (status == 'block') {
+                $('#post-box').hide();
+                $('#btn-posting-box').text('포스팅박스 열기');
 
-            if (count % 2 == 0) {
-                alert('짝수입니다.');
             } else {
-                alert('홀수입니다.');
+                $('#post-box').show();
+                $('#btn-posting-box').text('포스팅박스 닫기');
             }
-            count += 1;
         }
+
     </script>
 </head>
 
@@ -72,13 +75,14 @@
         <hr class="my-4">
 
         <p class="lead">
-            <a onclick="hey()" id = "btn-posting-box" class="btn btn-primary btn-lg" href="#" role="button">포스팅박스 열기</a>
+            <a onclick="openclose()" id="btn-posting-box" class="btn btn-primary btn-lg" href="#" role="button">포스팅박스
+                열기</a>
         </p>
     </div>
 
-    <div class="posting-box" id = "post-box">
+    <div class="posting-box" id="post-box">
         <div class="form-group">
-            <label >아티클 URL</label>
+            <label>아티클 URL</label>
             <input type="email" class="form-control" id="article-url" aria-describedby="emailHelp">
 
         </div>
